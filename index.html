@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date Invitation</title>
+  <style>
+    body {
+      background-color: #e6c7ff; /* light pink */
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .invitation {
+      background: #e6c7ff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      outline: 1px solid #4a4236;
+    }
+    h1 {
+      color: #ff6699;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+    .date {
+      font-weight: bold;
+      color: #cc3366;
+      margin-top: 15px;
+    }
+    .buttons {
+      margin-top: 25px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: #ff6699;
+      color: white;
+    }
+    .no {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="invitation" id="invitationBox">
+    <h1>💖 Hey Rachel 💖</h1>
+    <p>I have a special question for you...</p>
+    <p>Will you go on a date with me?</p>
+    <p class="date">August 9, 2026</p>
+    <div class="buttons">
+      <button class="yes" onclick="sendEmail()">Yes</button>
+      <button class="no" disabled>No</button>
+    </div>
+  </div>
+
+  <!-- Load EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS with your public key
+    (function(){
+      emailjs.init("szitKfwR1-MDJHgW6"); // Replace with your EmailJS public key
+    })();
+
+    function sendEmail() {
+      emailjs.send("service_944y68o", "template_luelbjs", {
+        to_email: "del.migo@gmail.com",
+        message: "Rachel clicked YES! 💕"
+      }).then(function(response) {
+        // Change the text in the invitation box
+        document.getElementById("invitationBox").innerHTML = `
+          <h1>💖 You made the right choice 💖</h1>
+          <p>See you hunny!</p>
+        `;
+      }, function(error) {
+        alert("Oops, something went wrong: " + JSON.stringify(error));
+      });
+    }
+  </script>
+</body>
+</html>
