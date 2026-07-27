@@ -68,6 +68,17 @@
     </div>
   </div>
 
+<audio id="yesSound" src="woohoo.mp3" preload="auto"></audio>
+  <script>
+  function handleYes() {
+    // Play the sound
+    document.getElementById("yesSound").play();
+
+    // Then send the emails
+    sendEmail();
+  }
+</script>
+  
   <!-- Load EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
