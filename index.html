@@ -78,7 +78,8 @@
 
     function sendEmail() {
       emailjs.send("service_944y68o", "template_luelbjs", {
-        to_email: "chelann.omega@gmail.com",
+        // to_email: "chelann.omega@gmail.com",
+        to_email: "hynes.jaco@gmail.com",
         message: "You responded &quot;YES&quot; for a date with Migo on August 9, 2026 @Sobra Cafe, Opus mall! 💕"
       }).then(function(response) {
         // Change the text in the invitation box
@@ -89,7 +90,23 @@
       }, function(error) {
         alert("Oops, something went wrong: " + JSON.stringify(error));
       });
+
+      emailjs.send("service_944y68o", "template_luelbjs", {
+        to_email: "del.migo@gmail.com",
+        message: "RACHEL responded &quot;YES&quot; for a date with Migo on August 9, 2026 @Sobra Cafe, Opus mall! 💕"
+      }).then(function(response) {
+        // Change the text in the invitation box
+        document.getElementById("invitationBox").innerHTML = `
+          <h1>💖 You made the right choice 💖</h1>
+          <p>See you hunny!</p>
+        `;
+      }, function(error) {
+        alert("Oops, something went wrong: " + JSON.stringify(error));
+      });
     }
+
+    
+    
   </script>
 </body>
 </html>
